@@ -3,7 +3,9 @@ var async = require('async');
 var q = require('q');
 module.exports = {
   updateMasterPassword: function(mikrotikIP, masterUsername, masterPassword, username, newPassword){
-    console.log('updateMasterPassword');
+    var deferred = q.defer();
+    var message = false;
+
     var connection = MikroNode.getConnection( mikrotikIP, masterUsername, masterPassword, {
         closeOnDone : false
     });
@@ -24,27 +26,28 @@ module.exports = {
             deferred.resolve(id);
           });
         }else{
-          console.log('Not users found');
+          message = 'Not users found';
         }
       return deferred.promise;
     }).then(function(userId){
       if(userId){
         return connection.getCommandPromise("/user/set",{"=.id":userId,"=password": newPassword});
       }else{
-        console.log("Not user named '"+username+"' found");
+        message = "Not user named '"+username+"' found";
       }
     }).then(function(res){
       if(res){
-        console.log("Password updated for user '"+username+"' ...");
+        message = "Password updated for user '"+username+"' ...";
       }
       connection.close();
-
+      deferred.resolve({message:message});
     },function(err){
-      if(err)
-        console.log('Oops: ' + JSON.stringify(err));
-      else
-        console.log('Not error provided...')
+      if(!err)
+        err = ({error:'Not error code provided...'})
       connection.close();
+      deferred.reject(err);
     });
+    return deferred.promise;
   }
+
 };
