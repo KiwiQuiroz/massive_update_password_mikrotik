@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.1",
+    "colors": "^1.3.0",
     "mikronode": "^2.3.11",
     "mikronode-ng": "^1.0.11",
     "q": "^1.5.1",

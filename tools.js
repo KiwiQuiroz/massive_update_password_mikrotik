@@ -37,7 +37,7 @@ module.exports = {
       }
     }).then(function(res){
       if(res){
-        message = "Password updated for user '"+username+"' ...";
+        message = "Password updated for user '"+username+"' in router "+mikrotikIP+" ...";
       }
       connection.close();
       deferred.resolve({message:message});
