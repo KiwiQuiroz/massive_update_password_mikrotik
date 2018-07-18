@@ -23,10 +23,13 @@ module.exports = {
             }
             next();
           },function(){
-            deferred.resolve(id);
+            if(id)
+              deferred.resolve(id);
+            else
+              deferred.reject({error:"Not user named '"+username+"' found"})
           });
         }else{
-          message = 'Not users found';
+          deferred.reject({error:"Not user named '"+username+"' found"})
         }
       return deferred.promise;
     }).then(function(userId){

@@ -1,0 +1,37 @@
+[
+  {
+    "publicIP"       : "192.168.88.1",
+    "accountId"      : 1,
+    "accountName"    : "Canizal Corp",
+    "mac"            : "00:00:00:00",
+    "statusName"     : "up" 
+  },
+  {
+    "publicIP"       : "192.168.88.1",
+    "accountId"      : 2,
+    "accountName"    : "Canizal Corp",
+    "mac"            : "00:00:00:00",
+    "statusName"     : "up" 
+  },
+  {
+    "publicIP"       : "192.168.88.1",
+    "accountId"      : 3,
+    "accountName"    : "Canizal Corp",
+    "mac"            : "00:00:00:00",
+    "statusName"     : "up" 
+  },
+  {
+    "publicIP"       : "192.168.88.1",
+    "accountId"      : 4,
+    "accountName"    : "Canizal Corp",
+    "mac"            : "00:00:00:00",
+    "statusName"     : "up" 
+  },
+  {
+    "publicIP"       : "192.168.88.1",
+    "accountId"      : 5,
+    "accountName"    : "Canizal Corp",
+    "mac"            : "00:00:00:00",
+    "statusName"     : "up" 
+  }
+]
